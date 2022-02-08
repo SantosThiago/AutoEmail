@@ -1,6 +1,9 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+
 
 #reading file with emails
 with open("emails.txt","r") as file:
@@ -16,8 +19,8 @@ print(emailList)
 # setuping
 host = "smtp.gmail.com" #example host mail
 port = 587
-user = "email"
-password = "password"
+user = "thiaguinhoo79@gmail.com"
+password = "nojf vdgc uvha rlib"
 
 # Creating object
 print('Creating server object...')
@@ -37,6 +40,21 @@ email_msg['From'] = user
 email_msg['Subject'] = "Testing AutoEMail"
 print('Adding text...')
 email_msg.attach(MIMEText(message, 'plain'))
+
+print('Getting attFile...')
+filename = "img.jpeg"
+filepath = "C:/Users/thiag/Desktop/project/img.jpeg" #example of filepath
+attachment = open(filepath, 'rb')
+
+print('reading attFile...')
+att = MIMEBase('application', 'octet-stream')
+att.set_payload(attachment.read())
+encoders.encode_base64(att)
+att.add_header('Content-Disposition', f'attachment; filename= img.jpeg')
+attachment.close()
+
+print('Adding attFile to email...')
+email_msg.attach(att)
 
 # Sending message
 print('Sending message...')
