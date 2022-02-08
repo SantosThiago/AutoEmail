@@ -19,8 +19,8 @@ print(emailList)
 # setuping
 host = "smtp.gmail.com" #example host mail
 port = 587
-user = "thiaguinhoo79@gmail.com"
-password = "nojf vdgc uvha rlib"
+user = "user"
+password = "password"
 
 # Creating object
 print('Creating server object...')
