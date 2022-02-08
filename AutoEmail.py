@@ -58,7 +58,11 @@ email_msg.attach(att)
 
 # Sending message
 print('Sending message...')
+i=1
 for email in emailList:
     server.sendmail(email_msg['From'], email, email_msg.as_string())
-print('Mensage sent!')
+    print(i,"/",len(emailList),"sent")
+    i=i+1
+    
+print("All messages have been sent")
 server.quit()
