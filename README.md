@@ -1,6 +1,6 @@
 # Auto Email
-Send automatic emails to as many emails as you want.
-You can attach files to your email.
+* Send automatic emails to as many emails as you want.
+* You can attach files to your email.
 
 ## How to use
 * You will need a txt file with the emails address, one email for each line.
